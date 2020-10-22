@@ -1,4 +1,5 @@
 import React from 'react'
+import ChatMessage from './ChatMessage'
 
 export default function Chatroom() {
     // Create a reference to the messages firestore collection
