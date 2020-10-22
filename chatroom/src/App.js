@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import Chatroom from './components/Chatroom'
+import SignIn from './components/SignIn'
 
 // Importing firebase SDK
 import firebase from 'firebase/app';
@@ -28,13 +30,16 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 function App() {
+  // Stores info of currently logged in user as an object
+  const [user] = useAuthState(auth);
+
   return (
     <div className="App">
       <header className="App-header">
 
       </header>
       <section>
-        {user ? <Chatroom /> : <SignIn />}
+        {user ? <Chatroom firestore={firestore} useCollectionData={useCollectionData} /> : <SignIn />}
       </section>
     </div>
   );

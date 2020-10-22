@@ -1,7 +1,8 @@
 import React from 'react'
 import ChatMessage from './ChatMessage'
 
-export default function Chatroom() {
+
+export default function Chatroom({ firestore, useCollectionData }) {
     // Create a reference to the messages firestore collection
     const messagesRef = firestore.collection('messages');
     // Make a query for a subset of documents ordered by creation date/time and limited to 25 messages
