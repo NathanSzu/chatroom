@@ -1,8 +1,8 @@
-import { auth } from 'firebase';
 import React from 'react'
 import firebase from 'firebase/app';
+import 'firebase/auth';
 
-export default function SignIn() {
+export default function SignIn({ auth }) {
     
     const signInWithGoogle = () => {
         // Instantiate Google auth provider

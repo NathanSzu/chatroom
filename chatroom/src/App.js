@@ -16,13 +16,13 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
   // firebase config data goes here
-  apiKey: "AIzaSyC2kO-yAlZ37Xc4HlmA5MkFJa7zrk8HsmM",
-  authDomain: "fir-practice-d60a9.firebaseapp.com",
-  databaseURL: "https://fir-practice-d60a9.firebaseio.com",
-  projectId: "fir-practice-d60a9",
-  storageBucket: "fir-practice-d60a9.appspot.com",
-  messagingSenderId: "192860976134",
-  appId: "1:192860976134:web:036133bf9b2769c40cff87"
+  apiKey: "AIzaSyA5q-lu9iIE5v6P4I8jym913g16QCPB7WA",
+  authDomain: "chatroom-9fc96.firebaseapp.com",
+  databaseURL: "https://chatroom-9fc96.firebaseio.com",
+  projectId: "chatroom-9fc96",
+  storageBucket: "chatroom-9fc96.appspot.com",
+  messagingSenderId: "68816750023",
+  appId: "1:68816750023:web:63fd9b2fecb73087b785e2"
 })
 
 // Referencing auth and firestore as global variables
@@ -35,11 +35,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
 
       </header>
+
       <section>
-        {user ? <Chatroom firestore={firestore} useCollectionData={useCollectionData} /> : <SignIn />}
+        {user ? <Chatroom firestore={firestore} useCollectionData={useCollectionData} /> : <SignIn auth={auth} />}
       </section>
     </div>
   );
