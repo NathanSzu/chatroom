@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ChatMessage from './ChatMessage'
 
 
@@ -10,12 +10,25 @@ export default function Chatroom({ firestore, useCollectionData }) {
 
     // Listen to data and update in real time using useCollectionData hook that we import
     // Returns an object containing the messages from the database
-    const [messages] = useCollectionData(query, {idField: 'id'});
+    const [messages] = useCollectionData(query, { idField: 'id' });
+
+    // Adding a state to hold message content.
+    const [formValue, setFormValue] = useState('');
 
     // populate the messages using a ChatMessage component and the map method
     return (
-        <div>
-            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-        </div>
+        <>
+            <div>
+                {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+            </div>
+
+            <form>
+
+                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
+
+                <button type="submit">Send</button>
+
+            </form>
+        </>
     )
 }
