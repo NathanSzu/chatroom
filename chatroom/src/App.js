@@ -40,7 +40,7 @@ function App() {
       </header>
 
       <section>
-        {user ? <Chatroom firestore={firestore} useCollectionData={useCollectionData} /> : <SignIn auth={auth} />}
+        {user ? <Chatroom firestore={firestore} useCollectionData={useCollectionData} auth={auth} /> : <SignIn auth={auth} />}
       </section>
     </div>
   );
